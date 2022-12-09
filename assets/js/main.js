@@ -1,3 +1,6 @@
+const cep = document.getElementById('form-cep');
+const formSubmit = document.getElementById('form-submit') 
+
 async function consultaCep(cep) {
 
     try {
@@ -7,7 +10,10 @@ async function consultaCep(cep) {
     } catch{}
 }
 
-const cep = document.getElementById('form-cep');
+formSubmit.addEventListener('click', (event) => {
+    event.preventDefault();
+})
+
 cep.addEventListener('focusout', () => {
     consultaCep(cep.value);
 })
