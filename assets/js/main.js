@@ -1,5 +1,9 @@
 const cep = document.getElementById('form-cep');
 const formSubmit = document.getElementById('form-submit'); 
+const cidade = document.getElementById('form-cidade');
+const bairro = document.getElementById('form-bairro');
+const endereco = document.getElementById('form-endereco');
+const uf = document.getElementById('form-uf');
 
 async function consultaCep(cep) {
 
@@ -7,11 +11,6 @@ async function consultaCep(cep) {
         const cepAPI = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
         const cepAPIconvertida = await cepAPI.json();
         console.log(cepAPIconvertida);
-
-        var cidade = document.getElementById('form-cidade');
-        const bairro = document.getElementById('form-bairro');
-        const endereco = document.getElementById('form-endereco');
-        var uf = document.getElementById('form-uf');
 
 
         endereco.value = cepAPIconvertida.logradouro;
@@ -29,4 +28,5 @@ formSubmit.addEventListener('click', (event) => {
 
 cep.addEventListener('focusout', () => {
     consultaCep(cep.value);
+
 })
