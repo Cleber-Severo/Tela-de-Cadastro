@@ -4,6 +4,7 @@ const cidade = document.getElementById('form-cidade');
 const bairro = document.getElementById('form-bairro');
 const endereco = document.getElementById('form-endereco');
 const uf = document.getElementById('form-uf');
+const ruaNumero = document.getElementById('form-numero');
 
 async function consultaCep(cep) {
 
@@ -28,5 +29,5 @@ formSubmit.addEventListener('click', (event) => {
 
 cep.addEventListener('focusout', () => {
     consultaCep(cep.value);
-
+    ruaNumero.focus();
 })
