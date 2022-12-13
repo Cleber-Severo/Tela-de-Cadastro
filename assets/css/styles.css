@@ -3,6 +3,10 @@ main {
     margin: 0 auto;
 }
 
+form h4 {
+    display: inline-block;
+}
+
 .botao {
     width: 60%;
     background-color: #353535;
