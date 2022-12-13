@@ -2,6 +2,7 @@
 
 const form = document.getElementById('form');
 const usuarioNome = document.getElementById('form-nome');
+const usuarioSobreNome = document.getElementById('form-sobreNome');
 
 const cep = document.getElementById('form-cep');
 const formSubmit = document.getElementById('form-submit'); 
@@ -33,7 +34,7 @@ async function consultaCep(cep) {
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-    modalTexto.innerHTML = `Obrigado <b>${usuarioNome.value}</b>, por completar seus dados!`;
+    modalTexto.innerHTML = `Obrigado <b>${usuarioNome.value} ${usuarioSobreNome.value}</b>, por completar seus dados!`;
     console.log(modalTexto.innerHTML)
 
 })
