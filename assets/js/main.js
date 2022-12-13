@@ -3,6 +3,7 @@
 const form = document.getElementById('form');
 const usuarioNome = document.getElementById('form-nome');
 const usuarioSobreNome = document.getElementById('form-sobreNome');
+const modalTexto = document.getElementById('modal-texto-container')
 
 const cep = document.getElementById('form-cep');
 const formSubmit = document.getElementById('form-submit'); 
@@ -12,7 +13,6 @@ const endereco = document.getElementById('form-endereco');
 const uf = document.getElementById('form-uf');
 const ruaNumero = document.getElementById('form-numero');
 
-const modalTexto = document.getElementById('modal-texto-container')
 
 
 
