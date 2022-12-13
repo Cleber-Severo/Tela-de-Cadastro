@@ -1,3 +1,8 @@
+
+
+const form = document.getElementById('form');
+const usuarioNome = document.getElementById('form-nome');
+
 const cep = document.getElementById('form-cep');
 const formSubmit = document.getElementById('form-submit'); 
 const cidade = document.getElementById('form-cidade');
@@ -5,6 +10,10 @@ const bairro = document.getElementById('form-bairro');
 const endereco = document.getElementById('form-endereco');
 const uf = document.getElementById('form-uf');
 const ruaNumero = document.getElementById('form-numero');
+
+const modalTexto = document.getElementById('modal-texto-container')
+
+
 
 async function consultaCep(cep) {
 
@@ -19,12 +28,14 @@ async function consultaCep(cep) {
         cidade.value = cepAPIconvertida.localidade;
         uf.value = cepAPIconvertida.uf;
         
-
     } catch{}
 }
 
-formSubmit.addEventListener('click', (event) => {
+form.addEventListener('submit', (event) => {
     event.preventDefault();
+    modalTexto.innerHTML = `Obrigado <b>${usuarioNome.value}</b>, por completar seus dados!`;
+    console.log(modalTexto.innerHTML)
+
 })
 
 cep.addEventListener('focusout', () => {
