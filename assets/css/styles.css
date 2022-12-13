@@ -2,3 +2,32 @@ main {
     width: 65vw;
     margin: 0 auto;
 }
+
+.botao {
+    width: 60%;
+    background-color: #353535;
+    color: white;
+    border: none;    
+}
+
+.botao:hover {
+    background-color: #252525;
+    border: 1px solid white;
+    border-color: white;
+}
+
+.botao:active {
+    background-color: #454545;
+}
+
+.btn-container {
+    width: 100% ;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 760px) {
+    .botao {
+        width: 90%;
+    }
+}
