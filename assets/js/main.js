@@ -3,7 +3,8 @@
 const form = document.getElementById('form');
 const usuarioNome = document.getElementById('form-nome');
 const usuarioSobreNome = document.getElementById('form-sobreNome');
-const modalTexto = document.getElementById('modal-texto-container')
+const usuarioNumero = document.getElementById('form-numero');
+const modalTexto = document.getElementById('modal-texto-container');
 
 const cep = document.getElementById('form-cep');
 const formSubmit = document.getElementById('form-submit'); 
@@ -12,7 +13,6 @@ const bairro = document.getElementById('form-bairro');
 const endereco = document.getElementById('form-endereco');
 const uf = document.getElementById('form-uf');
 const ruaNumero = document.getElementById('form-numero');
-
 
 
 
@@ -53,8 +53,16 @@ async function consultaCep(cepConsulta) {
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
+     
+    if(!usuarioNome.value || !usuarioSobreNome.value|| !usuarioNumero.value || !cep.value || !cidade.value || !bairro.value || !endereco.value || !uf.value || !ruaNumero.value) {
+        alert('preencha todos os campos');
+        return;
+    }
+
+    formSubmit.dataset.toggle = "modal" 
+    formSubmit.dataset.target = "#staticBackdrop" 
+   
     modalTexto.innerHTML = `Obrigado <b>${usuarioNome.value} ${usuarioSobreNome.value}</b>, por completar seus dados!`;
-    console.log(modalTexto.innerHTML)
 
 })
 
