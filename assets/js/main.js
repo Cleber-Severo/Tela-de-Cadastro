@@ -16,12 +16,22 @@ const ruaNumero = document.getElementById('form-numero');
 
 
 
-async function consultaCep(cep) {
 
+async function consultaCep(cepConsulta) {
+    const cepAviso = document.getElementById('erro-msg');
+    cepAviso.innerHTML = ''
+    cep.classList.remove('erro');
+        
     try {
-        const cepAPI = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const cepAPI = await fetch(`https://viacep.com.br/ws/${cepConsulta}/json/`);
         const cepAPIconvertida = await cepAPI.json();
         console.log(cepAPIconvertida);
+
+        if (cepAPIconvertida.erro){
+            cepAviso.innerHTML = `<span class="erro-txt">CEP Não Existe</span>`;
+            cep.classList.add('erro');
+            return;
+        }
 
 
         endereco.value = cepAPIconvertida.logradouro;
@@ -29,7 +39,16 @@ async function consultaCep(cep) {
         cidade.value = cepAPIconvertida.localidade;
         uf.value = cepAPIconvertida.uf;
         
-    } catch{}
+    } catch(erro){
+        const cep = document.getElementById('form-cep');
+       
+        if(cep.value !== '') {
+            cep.classList.add('erro');
+            cepAviso.innerHTML = `<span class="erro-txt">CEP deve ser composto por 8 numeros</span>`;
+            console.log('cep invalido');
+        }
+        
+    }
 }
 
 form.addEventListener('submit', (event) => {
