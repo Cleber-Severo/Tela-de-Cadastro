@@ -59,8 +59,7 @@ form.addEventListener('submit', (event) => {
         return;
     }
 
-    formSubmit.dataset.toggle = "modal" 
-    formSubmit.dataset.target = "#staticBackdrop" 
+    formSubmit.dataset.target = "#staticBackdrop"; 
    
     modalTexto.innerHTML = `Obrigado <b>${usuarioNome.value} ${usuarioSobreNome.value}</b>, por completar seus dados!`;
 
