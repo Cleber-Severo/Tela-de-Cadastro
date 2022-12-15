@@ -13,6 +13,15 @@ main {
     margin: 0 auto;
 }
 
+footer {
+   position:relative;
+   left:0px;
+   bottom:0px;
+   width:100%;
+  
+}
+
+
 form h4 {
     display: inline-block;
 }
